@@ -1,5 +1,5 @@
 # StockWebsite_Asp.NetMVC
-MVC Asp.Net web site application where product, category, customer addition and removal operations are performed, and sales and inventory are tracked.
+  MVC Asp.Net web site application where product, category, customer addition and removal operations are performed, and sales and inventory are tracked.
 
 ![MvcStokScreenShots1](https://user-images.githubusercontent.com/44260512/80997767-7e8b3d80-8e4a-11ea-99a7-b7bdfc253c0a.png)
 ![MvcStokScreenShots2](https://user-images.githubusercontent.com/44260512/80997772-7fbc6a80-8e4a-11ea-963d-f2095bda868e.png)
