@@ -1,0 +1,44 @@
+﻿@*Entity ve modeli view'a dahil etmemiz lazım. Model Tablomuzu liste olarak tutacak*@
+@using MVCStok.Models.Entity
+@model List<TBLKATEGORILER>
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_MainLayout.cshtml";
+}
+
+<table id="tblKategori" class="table table-bordered">    
+    <thead>
+        <tr>
+            <th>KATEGORİ ID</th>
+            <th>KATEGORİ ADI</th>
+            <th>SİL</th>                    @*Yeni eklenen alanlar*@
+            <th>GÜNCELLE</th>
+        </tr>
+    </thead>
+    <tbody>
+        @*fonk yazacağımız zaman @ kullanırız. Tablomuzdaki sütunları Model'den çekip foreach döngüsünde listelememiz lazım *@
+        @foreach (var ktgr in Model)
+        {
+            <tr>
+                <td>@ktgr.KATEGORIID</td>
+                <td>@ktgr.KATEGORIAD</td>
+                <td><a href="/KATEGORI/SIL/@ktgr.KATEGORIID" class="btn btn-danger">SİL</a></td>
+                <td><a href="/KATEGORI/KategoriGetir/@ktgr.KATEGORIID" class="btn btn-success">GÜNCELLE</a></td>
+            </tr>
+        }
+    </tbody>
+</table>
+<a href="/KATEGORI/YeniKategori" class="btn btn-primary">YENİ KATEGORİ</a>
+
+@* Jquery Eklentisi ile Otomatik Paging ve Searching İşlemleri (jquery.datatables NuGet import ettik)*@
+<script type="text/javascript" src="https://cdn.datatables.net/1.10.20/js/jquery.dataTables.min.js"></script>
+<link href="~/Content/DataTables/css/dataTables.bootstrap4.css" rel="stylesheet" />
+<script>
+    $(document).ready(function () {
+        $('#tblKategori').DataTable({
+            language: {
+                "url": "//cdn.datatables.net/plug-ins/9dcbecd42ad/i18n/Turkish.json"
+            }
+        });
+    });
+</script>
